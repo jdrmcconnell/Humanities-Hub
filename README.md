@@ -1,2 +1,2 @@
 # Humanities-Hub
-Student resource website
+Student Resource Hub
