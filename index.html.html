@@ -66,12 +66,13 @@
   .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
   }
 
-  .logo-icon {
-    font-size: 2rem;
-    line-height: 1;
+  .logo-svg {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
   }
 
   .logo-text {
@@ -356,6 +357,34 @@
   .y11 .resource-list li a:hover { color: var(--y11); border-color: var(--y11); background: var(--y11-light); }
   .y11 .add-btn:hover { border-color: var(--y11); color: var(--y11); }
 
+  /* ── USEFUL LINKS THEME ── */
+  :root {
+    --links: #0ea5a0;
+    --links-light: #e6f7f7;
+    --links-mid: #b2e8e6;
+    --examples: #f59e0b;
+    --examples-light: #fff8e6;
+    --examples-mid: #fde68a;
+  }
+
+  .ylinks .year-badge { background: var(--links-light); }
+  .ylinks .year-title { color: var(--links); }
+  .ylinks .resource-col { border-top: 4px solid var(--links); }
+  .ylinks .col-header { background: var(--links-light); }
+  .ylinks .col-title { color: var(--links); }
+  .ylinks .resource-list li a:hover { color: var(--links); border-color: var(--links); background: var(--links-light); }
+  .ylinks .add-btn:hover { border-color: var(--links); color: var(--links); }
+  .ylinks .section-divider { color: var(--links); border-color: var(--links-mid); }
+
+  .yexamples .year-badge { background: var(--examples-light); }
+  .yexamples .year-title { color: var(--examples); }
+  .yexamples .resource-col { border-top: 4px solid var(--examples); }
+  .yexamples .col-header { background: var(--examples-light); }
+  .yexamples .col-title { color: var(--examples); }
+  .yexamples .resource-list li a:hover { color: var(--examples); border-color: var(--examples); background: var(--examples-light); }
+  .yexamples .add-btn:hover { border-color: var(--examples); color: var(--examples); }
+  .yexamples .section-divider { color: var(--examples); border-color: var(--examples-mid); }
+
   /* Year 11 has 2 rows — presentations split by unit */
   .y11 .resource-grid { grid-template-columns: 1fr 1fr; }
   .y11 .resource-grid.three { grid-template-columns: repeat(3, 1fr); }
@@ -408,7 +437,38 @@
 <header>
   <div class="header-inner">
     <div class="logo">
-      <div class="logo-icon">🏛️</div>
+      <!-- Custom JMC Logo with Red Hand of Ulster -->
+      <svg class="logo-svg" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+        <!-- Outer circle - dark background -->
+        <circle cx="26" cy="26" r="26" fill="#1a1a1a"/>
+        <!-- Inner circle border - red -->
+        <circle cx="26" cy="26" r="23" fill="none" stroke="#cc0000" stroke-width="2"/>
+
+        <!-- JMC text -->
+        <text x="26" y="20" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="bold" fill="white" letter-spacing="1">JMC</text>
+
+        <!-- Divider line -->
+        <line x1="10" y1="23" x2="42" y2="23" stroke="#cc0000" stroke-width="1.2"/>
+
+        <!-- Red Hand of Ulster (simplified SVG path) -->
+        <!-- Palm base -->
+        <ellipse cx="26" cy="38" rx="7" ry="5" fill="#cc0000"/>
+        <!-- Thumb -->
+        <ellipse cx="18.5" cy="36" rx="2.2" ry="3.5" fill="#cc0000" transform="rotate(-20 18.5 36)"/>
+        <!-- Index finger -->
+        <ellipse cx="21" cy="29" rx="1.8" ry="4.5" fill="#cc0000" transform="rotate(-5 21 29)"/>
+        <!-- Middle finger -->
+        <ellipse cx="25" cy="27.5" rx="1.8" ry="5" fill="#cc0000"/>
+        <!-- Ring finger -->
+        <ellipse cx="29" cy="28.5" rx="1.8" ry="4.5" fill="#cc0000" transform="rotate(5 29 28.5)"/>
+        <!-- Little finger -->
+        <ellipse cx="32.5" cy="30.5" rx="1.6" ry="3.5" fill="#cc0000" transform="rotate(12 32.5 30.5)"/>
+        <!-- Palm centre fill to connect fingers -->
+        <rect x="19" y="33" width="14" height="7" rx="3" fill="#cc0000"/>
+        <!-- White highlight on hand -->
+        <ellipse cx="26" cy="35" rx="4" ry="2.5" fill="rgba(255,255,255,0.12)"/>
+      </svg>
+
       <div>
         <div class="logo-text">Humanities Hub</div>
         <div class="logo-sub">Your Learning Resource Centre · Year 7–11</div>
@@ -420,35 +480,57 @@
 <!-- HERO -->
 <div class="hero">
   <h1>Welcome to Humanities Hub 👋</h1>
-  <p>Select your year group below to find your lessons, resources and worksheets.</p>
+  <p>Select your year group or explore the tools and resources below.</p>
 
-  <div class="year-cards">
-    <a class="year-card active" onclick="showYear('y7', this)">
-      <span class="yc-emoji">🌏</span>
-      <div class="yc-label">Year 7</div>
-      <div class="yc-sub">HASS</div>
-    </a>
-    <a class="year-card" onclick="showYear('y8', this)">
-      <span class="yc-emoji">🗺️</span>
-      <div class="yc-label">Year 8</div>
-      <div class="yc-sub">HASS</div>
-    </a>
-    <a class="year-card" onclick="showYear('y9', this)">
-      <span class="yc-emoji">⚖️</span>
-      <div class="yc-label">Year 9</div>
-      <div class="yc-sub">HASS</div>
-    </a>
-    <a class="year-card" onclick="showYear('y10', this)">
-      <span class="yc-emoji">🌐</span>
-      <div class="yc-label">Year 10</div>
-      <div class="yc-sub">HASS</div>
-    </a>
-    <a class="year-card" onclick="showYear('y11', this)">
-      <span class="yc-emoji">🏛️</span>
-      <div class="yc-label">Year 11</div>
-      <div class="yc-sub">Ancient History</div>
-    </a>
+  <div style="margin-bottom: 12px;">
+    <div style="font-size:0.72rem; font-weight:900; text-transform:uppercase; letter-spacing:0.12em; color:rgba(255,255,255,0.45); margin-bottom:10px;">📚 Year Groups &amp; Classes</div>
+    <div class="year-cards">
+      <a class="year-card active" onclick="showYear('y7', this)">
+        <span class="yc-emoji">🌏</span>
+        <div class="yc-label">Year 7</div>
+        <div class="yc-sub">HASS</div>
+      </a>
+      <a class="year-card" onclick="showYear('y8', this)">
+        <span class="yc-emoji">🗺️</span>
+        <div class="yc-label">Year 8</div>
+        <div class="yc-sub">HASS</div>
+      </a>
+      <a class="year-card" onclick="showYear('y9', this)">
+        <span class="yc-emoji">⚖️</span>
+        <div class="yc-label">Year 9</div>
+        <div class="yc-sub">HASS</div>
+      </a>
+      <a class="year-card" onclick="showYear('y10', this)">
+        <span class="yc-emoji">🌐</span>
+        <div class="yc-label">Year 10</div>
+        <div class="yc-sub">HASS</div>
+      </a>
+      <a class="year-card" onclick="showYear('y11', this)">
+        <span class="yc-emoji">🏛️</span>
+        <div class="yc-label">Year 11</div>
+        <div class="yc-sub">Ancient History</div>
+      </a>
+    </div>
   </div>
+
+  <div style="height: 1px; background: rgba(255,255,255,0.1); margin: 20px auto; max-width: 700px;"></div>
+
+  <div>
+    <div style="font-size:0.72rem; font-weight:900; text-transform:uppercase; letter-spacing:0.12em; color:rgba(255,255,255,0.45); margin-bottom:10px;">🛠️ Tools &amp; Support</div>
+    <div class="year-cards">
+      <a class="year-card" onclick="showYear('links', this)">
+        <span class="yc-emoji">🔗</span>
+        <div class="yc-label">Useful Links</div>
+        <div class="yc-sub">Tools &amp; Archives</div>
+      </a>
+      <a class="year-card" onclick="showYear('examples', this)">
+        <span class="yc-emoji">⭐</span>
+        <div class="yc-label">Example Answers</div>
+        <div class="yc-sub">Model responses</div>
+      </a>
+    </div>
+  </div>
+
 </div>
 
 <!-- MAIN CONTENT -->
@@ -846,6 +928,223 @@
     </div>
 
   </div><!-- /y11 -->
+
+  <!-- ══════════════ USEFUL LINKS ══════════════ -->
+  <div id="sec-links" class="year-section ylinks">
+    <div class="year-header">
+      <div class="year-badge">🔗</div>
+      <div>
+        <div class="year-title">Useful Links</div>
+        <div class="year-desc">Handy tools, references and archives for all year groups</div>
+      </div>
+    </div>
+    <div class="resource-grid">
+
+      <div class="resource-col">
+        <div class="col-header">
+          <div class="col-icon">📚</div>
+          <div>
+            <div class="col-title">Referencing Guide</div>
+            <div class="col-desc">How to cite sources correctly</div>
+          </div>
+        </div>
+        <div class="col-body">
+          <ul class="resource-list" id="links-referencing">
+            <li><a href="https://www.citethisforme.com/" target="_blank"><span class="fi">🔗</span>Cite This For Me — Auto Reference Generator</a></li>
+            <li><a href="https://www.scribbr.com/chicago-style/chicago-style-citation-generator/" target="_blank"><span class="fi">🔗</span>Scribbr — Chicago Style Guide</a></li>
+            <li><a href="https://owl.purdue.edu/owl/research_and_citation/chicago_manual_17th_edition/cmos_formatting_and_style_guide/chicago_manual_of_style_17th_edition.html" target="_blank"><span class="fi">🔗</span>Purdue OWL — Chicago Referencing</a></li>
+          </ul>
+          <button class="add-btn" onclick="addResource('links-referencing', null)">＋ Add link</button>
+        </div>
+      </div>
+
+      <div class="resource-col">
+        <div class="col-header">
+          <div class="col-icon">🤖</div>
+          <div>
+            <div class="col-title">AI Tools</div>
+            <div class="col-desc">Approved AI tools for research and study</div>
+          </div>
+        </div>
+        <div class="col-body">
+          <ul class="resource-list" id="links-ai">
+            <li><a href="https://www.claude.ai" target="_blank"><span class="fi">🔗</span>Claude — AI Research Assistant</a></li>
+            <li><a href="https://www.perplexity.ai" target="_blank"><span class="fi">🔗</span>Perplexity — AI Search with Sources</a></li>
+            <li><a href="https://www.grammarly.com" target="_blank"><span class="fi">🔗</span>Grammarly — Writing Assistant</a></li>
+          </ul>
+          <button class="add-btn" onclick="addResource('links-ai', null)">＋ Add link</button>
+        </div>
+      </div>
+
+      <div class="resource-col">
+        <div class="col-header">
+          <div class="col-icon">🏛️</div>
+          <div>
+            <div class="col-title">Online Archives</div>
+            <div class="col-desc">Primary sources, museums &amp; digital libraries</div>
+          </div>
+        </div>
+        <div class="col-body">
+          <ul class="resource-list" id="links-archives">
+            <li><a href="https://www.britishmuseum.org/collection" target="_blank"><span class="fi">🔗</span>British Museum Online Collection</a></li>
+            <li><a href="https://www.perseus.tufts.edu/" target="_blank"><span class="fi">🔗</span>Perseus Digital Library</a></li>
+            <li><a href="https://www.worldhistory.org/" target="_blank"><span class="fi">🔗</span>World History Encyclopedia</a></li>
+            <li><a href="https://trove.nla.gov.au/" target="_blank"><span class="fi">🔗</span>Trove — National Library of Australia</a></li>
+            <li><a href="https://www.jstor.org/" target="_blank"><span class="fi">🔗</span>JSTOR — Academic Journals</a></li>
+          </ul>
+          <button class="add-btn" onclick="addResource('links-archives', null)">＋ Add link</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════ EXAMPLE ANSWERS ══════════════ -->
+  <div id="sec-examples" class="year-section yexamples">
+    <div class="year-header">
+      <div class="year-badge">⭐</div>
+      <div>
+        <div class="year-title">Example Answers</div>
+        <div class="year-desc">Model responses and annotated examples to help you understand what a great answer looks like</div>
+      </div>
+    </div>
+
+    <div class="section-divider">📝 HASS — Year 7–10</div>
+    <div class="resource-grid">
+
+      <div class="resource-col">
+        <div class="col-header">
+          <div class="col-icon">🌏</div>
+          <div>
+            <div class="col-title">Year 7 Examples</div>
+            <div class="col-desc">Model responses for Year 7 HASS tasks</div>
+          </div>
+        </div>
+        <div class="col-body">
+          <ul class="resource-list" id="ex-y7"></ul>
+          <div class="empty-msg" id="ex-y7-empty">No examples added yet — check back soon!</div>
+          <button class="add-btn" onclick="addResource('ex-y7','ex-y7-empty')">＋ Add example</button>
+        </div>
+      </div>
+
+      <div class="resource-col">
+        <div class="col-header">
+          <div class="col-icon">🗺️</div>
+          <div>
+            <div class="col-title">Year 8 Examples</div>
+            <div class="col-desc">Model responses for Year 8 HASS tasks</div>
+          </div>
+        </div>
+        <div class="col-body">
+          <ul class="resource-list" id="ex-y8"></ul>
+          <div class="empty-msg" id="ex-y8-empty">No examples added yet — check back soon!</div>
+          <button class="add-btn" onclick="addResource('ex-y8','ex-y8-empty')">＋ Add example</button>
+        </div>
+      </div>
+
+      <div class="resource-col">
+        <div class="col-header">
+          <div class="col-icon">⚖️</div>
+          <div>
+            <div class="col-title">Year 9 Examples</div>
+            <div class="col-desc">Model responses for Year 9 HASS tasks</div>
+          </div>
+        </div>
+        <div class="col-body">
+          <ul class="resource-list" id="ex-y9"></ul>
+          <div class="empty-msg" id="ex-y9-empty">No examples added yet — check back soon!</div>
+          <button class="add-btn" onclick="addResource('ex-y9','ex-y9-empty')">＋ Add example</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="resource-grid" style="grid-template-columns: 1fr 1fr; margin-top: 0;">
+      <div class="resource-col">
+        <div class="col-header">
+          <div class="col-icon">🌐</div>
+          <div>
+            <div class="col-title">Year 10 Examples</div>
+            <div class="col-desc">Model responses for Year 10 HASS tasks</div>
+          </div>
+        </div>
+        <div class="col-body">
+          <ul class="resource-list" id="ex-y10"></ul>
+          <div class="empty-msg" id="ex-y10-empty">No examples added yet — check back soon!</div>
+          <button class="add-btn" onclick="addResource('ex-y10','ex-y10-empty')">＋ Add example</button>
+        </div>
+      </div>
+
+      <div class="resource-col" style="background: var(--examples-light); border-color: var(--examples-mid);">
+        <div class="col-header" style="background: var(--examples-mid);">
+          <div class="col-icon">💡</div>
+          <div>
+            <div class="col-title" style="color: #92400e;">How to Use Example Answers</div>
+            <div class="col-desc">Tips for getting the most out of model responses</div>
+          </div>
+        </div>
+        <div class="col-body" style="padding-top: 14px;">
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:10px; font-size:0.87rem; font-weight:700; color: var(--ink);">
+            <li>✅ Read the example <em>before</em> attempting your own answer</li>
+            <li>✅ Identify what makes the response strong — structure, evidence, language</li>
+            <li>✅ Don't copy — use it as a guide for your own thinking</li>
+            <li>✅ Compare your answer to the example after completing your work</li>
+            <li>✅ Ask your teacher if you're unsure what the difference is</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-divider">🏛️ Ancient History — Year 11</div>
+    <div class="resource-grid">
+
+      <div class="resource-col">
+        <div class="col-header">
+          <div class="col-icon">🔍</div>
+          <div>
+            <div class="col-title">Source Analysis Examples</div>
+            <div class="col-desc">Annotated model source responses</div>
+          </div>
+        </div>
+        <div class="col-body">
+          <ul class="resource-list" id="ex-ah-sources"></ul>
+          <div class="empty-msg" id="ex-ah-sources-empty">No examples added yet — check back soon!</div>
+          <button class="add-btn" onclick="addResource('ex-ah-sources','ex-ah-sources-empty')">＋ Add example</button>
+        </div>
+      </div>
+
+      <div class="resource-col">
+        <div class="col-header">
+          <div class="col-icon">✍️</div>
+          <div>
+            <div class="col-title">Essay Examples</div>
+            <div class="col-desc">Model extended responses and essays</div>
+          </div>
+        </div>
+        <div class="col-body">
+          <ul class="resource-list" id="ex-ah-essays"></ul>
+          <div class="empty-msg" id="ex-ah-essays-empty">No examples added yet — check back soon!</div>
+          <button class="add-btn" onclick="addResource('ex-ah-essays','ex-ah-essays-empty')">＋ Add example</button>
+        </div>
+      </div>
+
+      <div class="resource-col">
+        <div class="col-header">
+          <div class="col-icon">📋</div>
+          <div>
+            <div class="col-title">Marked with Feedback</div>
+            <div class="col-desc">Annotated responses showing examiner comments</div>
+          </div>
+        </div>
+        <div class="col-body">
+          <ul class="resource-list" id="ex-ah-marked"></ul>
+          <div class="empty-msg" id="ex-ah-marked-empty">No examples added yet — check back soon!</div>
+          <button class="add-btn" onclick="addResource('ex-ah-marked','ex-ah-marked-empty')">＋ Add example</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
 </main>
 
